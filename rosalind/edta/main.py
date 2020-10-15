@@ -12,9 +12,9 @@ def edit_dist_with_align(s, t):
 
     for i in range(1, len(s)+1):
         for j in range(1, len(t)+1):
-            scores = [d[i-1][j-1] + (s[i-1] != t[j-1]), # 0 = match
-                      d[i-1][j] + 1,                    # 1 = insertion
-                      d[i][j-1] + 1]                    # 2 = deletion
+            scores = [d[i-1][j-1] + (s[i-1] != t[j-1]), 
+                      d[i-1][j] + 1,                    
+                      d[i][j-1] + 1]                    
             d[i][j] = min(scores)
             traceback[i][j] = scores.index(d[i][j])
             

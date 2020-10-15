@@ -1,23 +1,19 @@
 from rosalind_utils import parse_fasta, BLOSUM62, match_score
 
 def global_align(s, t, scores, gap):
-    # Initialize the similarity matrix.
     S = [[0 for j in range(len(t)+1)] for i in range(len(s)+1)]
 
-    # Each cell in the first row and column recieves a gap penalty.
     for i in range(1, len(s)+1):
         S[i][0] = i * gap
     for j in range(1, len(t)+1):
         S[0][j] = j * gap
 
-    # Fill in the similarity matrix.
     for i in range(1, len(s)+1):
         for j in range(1, len(t)+1):
             S[i][j] = max([ S[i-1][j-1] + match_score(scores, s[i-1], t[j-1]),
                             S[i-1][j] + gap,
                             S[i][j-1] + gap ])
 
-    # The max possible score is the last cell of the similarity matrix.
     return S[-1][-1]
 
    

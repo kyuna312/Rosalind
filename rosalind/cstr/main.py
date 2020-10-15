@@ -1,23 +1,21 @@
 def character_table(t):
-    # Return if at the end of the sequence...
-    if len(t[0]) < 1:
+
+    if len (t[0]) < 1:
         return None
         
-    # Can't create seperate taxa with only one sequence...
     if len(t) < 2:
         return None
     
-    # Initialize the character table.
     char = [[0 for i in t]]
     
     taxa = [[0], []]
+    
     for i in range(1, len(t)):
         if t[i][0] == t[0][0]:
             taxa[0].append(i)
         else:
             taxa[1].append(i)
             
-    # Return if all sequences are identical at the current position...
     if taxa[1] == []:
         return None
     
@@ -49,9 +47,5 @@ def main():
     
     print('\n'.join([''.join(map(str, answer[i])) for i in range(len(answer))]))
     
-    #with open('output/rosalind_ctbl_out.txt', 'w') as outfile:
-    #    outfile.write('\n'.join([''.join(map(str, answer[i])) for i in range(len(answer))]))
-
-
 if __name__ == '__main__':
     main()

@@ -21,6 +21,5 @@ def main():
         
     print('\n'.join(map(str, largest_multiplicity(s, t))))
     
-
 if __name__ == '__main__':
     main()

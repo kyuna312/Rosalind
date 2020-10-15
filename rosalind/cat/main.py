@@ -27,7 +27,7 @@ if __name__ == "__main__":
     s = seq_string[0]
     print(s)
     nodes = len(s)
-    catalan_memo = {}     # Catalan Numbers values
+    catalan_memo = {}   
     catalan_number= _get_catalan_numbers(s, nodes, catalan_memo)
     print("catalan number: {}".format(catalan_number))
     print("modulo 1,000,000: {}".format(catalan_number%1000000))

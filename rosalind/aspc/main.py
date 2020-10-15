@@ -8,6 +8,7 @@ def main():
     with open('./rosalind_aspc.txt', 'r') as infile:
         n, m = [int(i) for i in infile.readline().strip().split(' ')]
 
+
     answer = combinations(n, m) % 1000000
     print(answer)
 

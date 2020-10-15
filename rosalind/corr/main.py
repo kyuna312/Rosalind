@@ -1,10 +1,9 @@
-# ^_^ coding:utf-8 ^_^
-
-
 from Bio import SeqIO
+
 
 def hamming_distance(s1, s2):
     return sum([1 if s1[i]!=s2[i] else 0 for i in range(len(s1))])
+
 
 def error_correct(reads):
     corrections = []
@@ -31,7 +30,6 @@ def error_correct(reads):
     return corrections
 
 if __name__ == "__main__":
-    # load data
     seq_name, seq_string = [], []
     with open ("./rosalind_corr.txt",'r') as fa:
         for seq_record in SeqIO.parse(fa,'fasta'):
